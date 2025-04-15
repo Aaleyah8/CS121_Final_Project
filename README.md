@@ -19,5 +19,9 @@ the loadRiddle will load each riddle. play riddle will play the riddle and tell 
 the add riddle will allow anyone to add a riddle 
 the edit riddle will allow to edit and fix a riddle.
 
+riddle class 
+this will be the other class that gets the riddle question and answer. It will return a question along with answer. 
+
+
 Use of Object-oriented programming 
 inheritance - each of the riddle functions will inherit from the riddleGuesser interface.
