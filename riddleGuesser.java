@@ -3,10 +3,9 @@ import java.util.Random;
 
 public class riddleGuesser {
 
-	riddles = new ArrayList();
-	answers = new ArrayList();
+	private string arrayList();
 
-	public static void main(string[], args){
+	public static void main(string[] args){
 		Scanner input = new Scanner(System.in);
 		boolean keepGoing = true;
 
@@ -26,20 +25,22 @@ public class riddleGuesser {
 	} // end main
 
 	public static void loadRiddles(){
+		Scanner input = new Scanner(System.in)
 		riddle.add(new Riddle("I have a tail, and I have a head, but I have no body. What am I?", "A Coin"));
 		riddle.add(new Riddle("What is always coming, but never arrives?", "A Future"));
 		riddle.add(new Riddle("What is full of holes but still holds water?", "A Sponge"));
 	} // end constructor
 
-	public static void playRiddle(){
+	public void playRiddle(){
+		Scanner scanner = new Scanner(system.in)
 
 		if (riddle.isEmpty()){
 			system.out.println("No Riddles available");
 			return;
 		} // end if
 
-		int random = int math.random() * riddles.size;
-		Riddle currentRiddle = riddles.get(random);
+		int random = math.random() * riddles.size;
+		Riddle currentRiddle = riddle.get(random);
 
 		system.out.println("Heres a riddle: ");
 		system.out.println();
@@ -53,7 +54,8 @@ public class riddleGuesser {
 		} // end else
 	} // end constructor
 
-	public static void addRiddle(){
+	public void addRiddle(){
+		Scanner scanner = new Scanner(system.in)
 		system.out.println("-- Add a Riddle --");
 		system.out.println();
 		system.out.println("Enter your Riddle: ");
@@ -66,33 +68,35 @@ public class riddleGuesser {
 		system.out.println("Riddle Successfully added!");
 	} // end constructor
 
-	public static void listRiddle(){
-		if (riddles.isEmpty()){
+	public void listRiddle(){
+		Scanner scanner = new Scanner(system.in)
+		if (riddle.isEmpty()){
 			system.out.println("No riddles have been added yet");
 			return;
 		} // end if
 
 		system.out.println("-- Riddle List --");
-		for (int i = 0; i < riddles.size(); i++) {
-			system.out.println((i + 1) + ". " + riddles.get(i).getQuestion());
+		for (int i = 0; i < riddle.size(); i++) {
+			system.out.println((i + 1) + ". " + riddle.get(i).getQuestion());
 		} // end for
 		system.out.println("---------------------");
 	} // end constructor
 
-	public static void editRiddle(){
-
-		if (riddles.isEmpty()){
+	public void editRiddle(){
+		
+		Scanner scanner = new Scanner(system.in)
+		if (riddle.isEmpty()){
 			system.out.println("No Riddles to edit. Please add some first.");
 			return;
 		} // end if
 
 		listRiddles();
-		System.out.println("What Riddle do you want to edit: ");
+		system.out.println("What Riddle do you want to edit: ");
 		int Edit = scanner.nextInt();
 		scanner.nextLine();
 
 		if (Edit >= 1 && Edit <= riddles.size()){
-			Riddle riddleEdit = riddles.get(Edit - 1);
+			Riddle riddleEdit = riddle.get(Edit - 1);
 			system.out.println("Edit Riddle" + Edit + " ---");
 			system.out.println("Current Question: " + riddleEdit.getQuestion());
 			system.out.println("Enter a new Question (or press ENTER to keep current): ");
@@ -118,7 +122,7 @@ class Riddle {
 	} // end constructor
 
 	public string getQuestion() {
-		return Question;
+		return question;
 	} // end get Question
 
 	public string getAnswer(){
