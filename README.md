@@ -17,10 +17,11 @@ Riddle Guesser Class
 The riddle guesser class will be the interface that will implement all its elements since it is the only class. 
 the loadRiddle will load each riddle. play riddle will play the riddle and tell if the riddle will work or not and will pick the riddle at random.
 the add riddle will allow anyone to add a riddle 
-the edit riddle will allow to edit and fix a riddle.
+the edit riddle will allow to edit and fix a riddle. 
 
 riddle class 
-this will be the other class that gets the riddle question and answer. It will return a question along with answer. 
+this will be the other class that gets the riddle question and answer. It will return a question along with answer.
+the computer gives a riddle at random. 
 
 
 Use of Object-oriented programming 
