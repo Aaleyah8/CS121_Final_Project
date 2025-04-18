@@ -20,7 +20,7 @@ public class riddleGuesser {
 			System.out.println();
 			System.out.println("Your Choice: ");
 			String response = input.nextLine();
-			return response;
+			return Response;
 		} // end while
 	} // end main
 
@@ -89,7 +89,7 @@ public class riddleGuesser {
 		System.out.println("What Riddle do you want to edit: ");
 		String Edit = Scanner.nextLine();
 
-		if (Edit >= 1 && Edit <= Riddles.size()){
+		if (Edit >  1 && Edit < Riddles.size()){
 			Riddle riddleEdit = Riddle.get(Edit - 1);
 			System.out.println("Edit Riddle" + Edit + " ---");
 			System.out.println("Current Question: " + riddleEdit.getQuestion());
@@ -107,27 +107,27 @@ public class riddleGuesser {
 } // end riddleGuesser
 
 class Riddle {
-	private string question;
-	private string answer;
+	private String question;
+	private String answer;
 
-	public Riddle(string question, string answer){
+	public Riddle(String question, String answer){
 		this.question = question;
 		this.answer = answer;
 	} // end constructor
 
-	public string getQuestion() {
+	public String getQuestion(){
 		return question;
 	} // end get Question
 
-	public string getAnswer(){
+	public String getAnswer(){
 		return answer;
 	} // end get Answer
 
-	public void setQuestion(string question) {
+	public void setQuestion(String question) {
 		this.question = question;
 	} // end set question
 
-	public void setAnswer(string answer){
+	public void setAnswer(String answer){
 		this.answer = answer;
 	} // end set answer
 } // end class riddle
