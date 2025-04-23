@@ -22,23 +22,23 @@ public class riddleGuesser {
 			System.out.println();
 			System.out.println("Your Choice: ");
 			String response = scanner.nextLine();
+			System.out.println("User Entered: " + response);
 
 			if(response.equals("0")){
 				keepGoing = false;
 			} else if (response.equals("1")) {
 				System.out.println("Playing Riddle....");
-				playRiddle(scanner);
+				playRiddle();
 			} else if (response.equals("2")) {
 				System.out.println("Adding a Riddle...");
-				addRiddle(scanner);
+				addRiddle();
 			} else if (response.equals("3")){
 				System.out.println("Editing a Riddle...");
-				editRiddle(scanner);
+				editRiddle();
 			} else {
 				System.out.println("Listing Riddles...");
 				listRiddle();
-			}
-
+			} // end else
 		} // end while
 		scanner.close();
 	} // end main
@@ -49,7 +49,8 @@ public class riddleGuesser {
 		riddleList.add(new Riddle("What is full of holes but still holds water?", "A Sponge"));
 	} // end constructor
 
-	public static void playRiddle(Scanner scanner){
+	public static void playRiddle(){
+		Scanner scanner = new Scanner(System.in);
 		if (riddleList.isEmpty()){
 			System.out.println("No Riddles available");
 			scanner.close();
@@ -73,7 +74,8 @@ public class riddleGuesser {
 	} // end constructor
 		
 
-	public static void addRiddle(Scanner scanner){
+	public static void addRiddle(){
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("-- Add a Riddle --");
 		System.out.println();
 		System.out.println("Enter your Riddle: ");
@@ -100,9 +102,11 @@ public class riddleGuesser {
 		System.out.println("---------------------");
 	} // end constructor
 
-	public static void editRiddle(Scanner scanner){
+	public static void editRiddle(){
+		Scanner scanner = new Scanner(System.in);
 		if (riddleList.isEmpty()){
 			System.out.println("No Riddles to edit. Please add some first.");
+			scanner.close();
 			return;
 		} // end if
 
@@ -124,6 +128,7 @@ public class riddleGuesser {
 		} else {
 			System.out.println("Invalid");
 		} // end else
+		scanner.close();
 		Input.close();
 	} // end constructor
 } // end riddleGuesser
