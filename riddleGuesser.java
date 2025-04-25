@@ -21,21 +21,24 @@ public class riddleGuesser {
 			System.out.println("4) List Riddles");
 			System.out.println();
 			System.out.println("Your Choice: ");
-			String response = scanner.nextLine();
+
+			String response = scanner.nextLine().trim();
 			System.out.println("User Entered: " + response);
 
-			if(response.equals("0")){
+			int choice = Integer.parseInt(response);
+
+			if(choice == 0) {
 				keepGoing = false;
 			} else if (response.equals("1")) {
 				System.out.println("Playing Riddle....");
-				playRiddle();
+				playRiddle(scanner);
 			} else if (response.equals("2")) {
 				System.out.println("Adding a Riddle...");
-				addRiddle();
-			} else if (response.equals("3")){
+				addRiddle(scanner);
+			} else if (response.equals("3")) { 
 				System.out.println("Editing a Riddle...");
-				editRiddle();
-			} else {
+				editRiddle(scanner);
+			} else if (response.equals("4")) {
 				System.out.println("Listing Riddles...");
 				listRiddle();
 			} // end else
@@ -49,11 +52,9 @@ public class riddleGuesser {
 		riddleList.add(new Riddle("What is full of holes but still holds water?", "A Sponge"));
 	} // end constructor
 
-	public static void playRiddle(){
-		Scanner scanner = new Scanner(System.in);
+	public static void playRiddle(Scanner scanner){
 		if (riddleList.isEmpty()){
 			System.out.println("No Riddles available");
-			scanner.close();
 			return;
 		} // end if
 
@@ -70,12 +71,10 @@ public class riddleGuesser {
 		} else {
 			System.out.println("Sorry, not correct. The answer is: " + currentRiddle.getAnswer());
 		} // end else
-		scanner.close();
 	} // end constructor
 		
 
-	public static void addRiddle(){
-		Scanner scanner = new Scanner(System.in);
+	public static void addRiddle(Scanner scanner){
 		System.out.println("-- Add a Riddle --");
 		System.out.println();
 		System.out.println("Enter your Riddle: ");
@@ -102,18 +101,16 @@ public class riddleGuesser {
 		System.out.println("---------------------");
 	} // end constructor
 
-	public static void editRiddle(){
-		Scanner scanner = new Scanner(System.in);
+	public static void editRiddle(Scanner scanner){
 		if (riddleList.isEmpty()){
 			System.out.println("No Riddles to edit. Please add some first.");
 			scanner.close();
 			return;
 		} // end if
 
-		Scanner Input = new Scanner(System.in);
-		System.out.println("What Riddle do you want to edit: ");
+		System.out.println("What Riddle do you want to edit? ");
 		int edit = Input.nextInt();
-		Input.nextLine();
+		scanner.nextLine();
 
 		if (edit >= 1 && edit <= riddleList.size()){
 			Riddle riddleEdit = (Riddle) riddleList.get(edit - 1);
@@ -128,8 +125,6 @@ public class riddleGuesser {
 		} else {
 			System.out.println("Invalid");
 		} // end else
-		scanner.close();
-		Input.close();
 	} // end constructor
 } // end riddleGuesser
 
@@ -158,8 +153,6 @@ class Riddle {
 		this.answer = answer;
 	} // end set answer
 } // end class riddle
-
-
 
 
 
