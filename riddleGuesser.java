@@ -23,11 +23,9 @@ public class riddleGuesser {
 			System.out.println("Your Choice: ");
 
 			String response = scanner.nextLine().trim();
-			System.out.println("User Entered: " + response);
+			System.out.println("You Entered" + response);
 
-			int choice = Integer.parseInt(response);
-
-			if(choice == 0) {
+			if (response.equals("0")) {
 				keepGoing = false;
 			} else if (response.equals("1")) {
 				System.out.println("Playing Riddle....");
@@ -40,8 +38,10 @@ public class riddleGuesser {
 				editRiddle(scanner);
 			} else if (response.equals("4")) {
 				System.out.println("Listing Riddles...");
-				listRiddle();
-			} // end else
+					listRiddle();
+			} else {
+				System.out.println("Invalid Input. Please ender a number.");
+				} // end else
 		} // end while
 		scanner.close();
 	} // end main
@@ -85,7 +85,6 @@ public class riddleGuesser {
 		Riddle newRiddle = new Riddle(question, answer);
 		riddleList.add(newRiddle);
 		System.out.println("Riddle Successfully added!");
-		scanner.close();
 	} // end constructor
 
 	public static void listRiddle(){
@@ -104,12 +103,11 @@ public class riddleGuesser {
 	public static void editRiddle(Scanner scanner){
 		if (riddleList.isEmpty()){
 			System.out.println("No Riddles to edit. Please add some first.");
-			scanner.close();
 			return;
 		} // end if
 
 		System.out.println("What Riddle do you want to edit? ");
-		int edit = Input.nextInt();
+		int edit = scanner.nextInt();
 		scanner.nextLine();
 
 		if (edit >= 1 && edit <= riddleList.size()){
